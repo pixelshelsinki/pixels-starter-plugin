@@ -1,0 +1,28 @@
+{
+    "name": "pixels/pixels-starter-plugin",
+    "description": "Pixels plugin",
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/pixelshelsinki/pixels-starter-plugin",
+    "authors": [
+      {
+        "name": "Sampo Silvennoinen",
+        "email": "sampo@pixels.fi",
+        "homepage": "https://github.com/stscoundrel"
+      }
+    ],
+    "keywords": [
+      "wordpress"
+    ],
+    "support": {
+      "issues": "https://github.com/pixelshelsinki/pixels-starter-plugin/issues"
+    },
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+    "psr-4": {
+      "Pixels\\ProjectName\\": "lib/"
+    }
+  }
+}
