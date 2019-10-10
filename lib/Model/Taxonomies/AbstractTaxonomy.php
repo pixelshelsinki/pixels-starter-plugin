@@ -2,6 +2,11 @@
 
 namespace Pixels\ProjectName\Model\Taxonomies;
 
+/**
+ * Abstract Taxonomy class
+ * Inherited by all taxonomies we create
+ * Offers basic structure for creation & utility functions
+ */
 abstract class AbstractTaxonomy {
 
   /**
@@ -9,8 +14,31 @@ abstract class AbstractTaxonomy {
    *
    * @var string
    */
-  public $taxonomy;
+  protected $taxonomy;
 
+  /**
+   * Post type(s)
+   *
+   * @var mixed
+   */
+  protected $post_type;
+
+  /**
+   * Taxonomy args / options
+   *
+   * @var array
+   */
+  protected $args;
+
+  /**
+   * Create the taxonomy
+   */
+  public function create() {
+    
+    //Register & connect to Example CPT
+    register_taxonomy( $this->get_name(), $this->get_post_type() , $this->get_args() );
+    register_taxonomy_for_object_type( $this->get_name(), $this->get_post_type() );
+  }
 
   /**
    * Set taxonoomy property name
@@ -22,14 +50,59 @@ abstract class AbstractTaxonomy {
   }
 
   /**
-     * Return array of taxonomy terms
-     *
-     * @param bool $as_timber wp terms or timber terms
-     * @return array $terms
-     */
-    public static function get_terms( $as_timber = false ) {
+   * Get taxonoomy property name
+   *
+   * @return string $taxonomy name
+   */
+  protected function get_name() {
+    return $this->taxonomy;
+  }
 
-      // Get tax terms.
+  /**
+   * Set taxonoomy post type(s)
+   *
+   * @param mixed $post_type either array or string
+   */
+  protected function set_post_type( $post_type ) {
+    $this->post_type = $post_type;
+  }
+
+  /**
+   * Get taxonoomy post type name
+   *
+   * @return mixed $post_type string or array
+   */
+  protected function get_post_type() {
+    return $this->post_type;
+  }
+
+  /**
+   * Set taxonoomy property name
+   *
+   * @param array $args name
+   */
+  protected function set_args( array $args ) {
+    $this->args = $args;
+  }
+
+  /**
+   * Get taxonoomy args
+   *
+   * @return array $args of tax
+   */
+  protected function get_args() {
+    return $this->args;
+  }
+
+  /**
+   * Return array of taxonomy terms
+   *
+   * @param bool $as_timber wp terms or timber terms
+   * @return array $terms
+   */
+  public static function get_terms( $as_timber = false ) {
+
+    // Get tax terms.
     $args = array(
       'taxonomy'   => $this->taxonomy,
       'hide_empty' => true,
@@ -45,10 +118,10 @@ abstract class AbstractTaxonomy {
       foreach ( $terms as $term ) :
         $terms_timber[] = new \Timber\Term( $term->term_id );
       endforeach;
-      
+
       return $terms_timber;
     endif;
 
     return $terms;
-    }
+  }
 }
