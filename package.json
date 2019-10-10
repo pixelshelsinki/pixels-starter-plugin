@@ -1,0 +1,24 @@
+{
+  "name": "pixels-starter-plugin",
+  "version": "1.0.0",
+  "description": "Pixels Starter Plugin for WP Development",
+  "author": "Pixels Helsinki Oy <hello@pixels.fi>",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelshelsinki/pixels-starter-plugin.git"
+  },
+  "keywords": [
+    "wordpress"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pixelshelsinki/pixels-starter-plugin/issues"
+  },
+  "homepage": "https://github.com/pixelshelsinki/pixels-starter-plugin#readme"
+}
