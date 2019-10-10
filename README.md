@@ -7,7 +7,7 @@ This is the starter plugin for Pixels website projects that are built on WordPre
 
 This plugin uses the following:
 
-* Composer for PHP depedendencies
+* Composer for PHP dependencies
 * PSR-4 autoloading
 
 ## Requirements
@@ -36,6 +36,6 @@ To develop this theme you must also have the following:
 To start developing do the following:
 
 1. Run `composer install` in the folder. Even if you don't have Composer dependencies, this will handle Composer autoloading
-2. Remove the parts you don't need. If you don't have crons, remove Cron files from /lib. Same with RestAPI
-3. Insert Custom Post Types, Taxonomies and custom meta in /lib/Model.php. There are folders / namespaces for each of them with examples. You might want to use examples as base and just replace them.
+2. Remove the parts you don't need. If you don't have crons, remove Cron files from `/lib`. Same with RestAPI
+3. Insert Custom Post Types, Taxonomies and custom meta in `/lib/Model.php`. There are folders / namespaces for each of them with examples. You might want to use examples as base and just replace them.
 4. Avoid fat controllers in Rest & Cron. Instead implement Service classes that you can utilize for providing and editing data.
