@@ -27,6 +27,7 @@ class Model {
   private $tax_example;
 
   // Meta fields.
+  private $meta_example;
 
   // Common ACF
   private $options_pages;
@@ -41,6 +42,7 @@ class Model {
     $this->product_brand    = new Model\Taxonomies\ExampleTaxonomy();
 
     // Fields.
+    $this->meta_example     = new Model\Meta\Fields\Example();
 
     // Misc.
     $this->options_pages    = new Model\Meta\OptionsPages();
