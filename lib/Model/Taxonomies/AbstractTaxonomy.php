@@ -35,7 +35,7 @@ abstract class AbstractTaxonomy {
    */
   public function create() {
     
-    //Register & connect to Example CPT
+    //Register & connect to CPT(s)
     register_taxonomy( $this->get_name(), $this->get_post_type() , $this->get_args() );
     register_taxonomy_for_object_type( $this->get_name(), $this->get_post_type() );
   }
@@ -77,7 +77,7 @@ abstract class AbstractTaxonomy {
   }
 
   /**
-   * Set taxonoomy property name
+   * Set taxonoomy property args
    *
    * @param array $args name
    */

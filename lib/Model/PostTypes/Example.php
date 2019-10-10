@@ -2,16 +2,50 @@
 
 namespace Pixels\ProjectName\Model\PostTypes;
 
-class Example {
+class Example extends AbstractPostType {
 
    public function __construct() {
 
+    // Set up post type options
+    $this->set_name( 'example' );
+    $this->set_args( $this->define_args() );
+
     //Hook up Example cpt
-    add_action( 'init', array( $this, 'init' ) );
+    add_action( 'init', array( $this, 'create' ) );
   }
   
-  public static function init() {
+  /**
+   * Get arguments array for registration
+   *
+   * @return array $args
+   */  
+  public function define_args() {    
     
+    $args = array(
+      'labels'             => $this->define_labels(),
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'show_in_nav_menus'  => true,
+      'query_var'          => true,
+      'capability_type'    => 'post',
+      'has_archive'        => false,
+      'hierarchical'       => false,
+      'menu_position'      => null,
+      'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    return $args;
+  }
+
+  /**
+   * Get labels array for registration
+   *
+   * @return array $labels
+   */  
+  public function define_labels() {
+
     $labels = array(
       'name'               => _x( 'Examples', 'post type general name', 'pixels-starter-plugin' ),
       'singular_name'      => _x( 'Example', 'post type singular name', 'pixels-starter-plugin' ),
@@ -28,21 +62,7 @@ class Example {
       'not_found'          => __( 'No Examples found.', 'pixels-starter-plugin' ),
       'not_found_in_trash' => __( 'No Examples found in Trash.', 'pixels-starter-plugin' )
     );
-    $args = array(
-      'labels'             => $labels,
-      'public'             => true,
-      'publicly_queryable' => true,
-      'show_ui'            => true,
-      'show_in_menu'       => true,
-      'show_in_nav_menus'  => true,
-      'query_var'          => true,
-      'capability_type'    => 'post',
-      'has_archive'        => false,
-      'hierarchical'       => false,
-      'menu_position'      => null,
-      'supports'           => array( 'title', 'editor', 'thumbnail' ),
-    );
 
-    register_post_type( 'Example', $args );
-    }
+    return $labels;
+  }
 } //end Example

@@ -16,7 +16,7 @@ class ExampleTaxonomy extends AbstractTaxonomy {
   }
 
   /**
-   * Get arguments for array registration
+   * Get arguments for tax registration
    *
    * @return array $labels
    */  
