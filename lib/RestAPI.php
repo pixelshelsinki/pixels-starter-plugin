@@ -37,7 +37,7 @@ class RestAPI {
           'callback' => 'Pixels\ProjectName\RestControllers\ExampleController::get',
         ),
         array(
-          'methods' => 'GET',
+          'methods' => 'POST',
           'callback' => 'Pixels\ProjectName\RestControllers\ExampleController::post',
         )
       )

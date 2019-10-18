@@ -36,10 +36,10 @@ class Model {
   function __construct() {
 
     // Custom post types.
-    $this->cpt_person       = new Model\PostTypes\Example();
+    $this->cpt_example       = new Model\PostTypes\Example();
 
     // Taxonomies.
-    $this->product_brand    = new Model\Taxonomies\ExampleTaxonomy();
+    $this->tax_example      = new Model\Taxonomies\ExampleTaxonomy();
 
     // Fields.
     $this->meta_example     = new Model\Meta\Fields\Example();
