@@ -2,7 +2,7 @@
 namespace Pixels\ProjectName;
 
 // Controllers
-use Rest\ExampleController;
+use RestControllers\ExampleController;
 
 /**
  * ProjectName RestAPI class
@@ -17,6 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class RestAPI {
 
+  /**
+   * Namespace for plugin REST endpoints
+   */
+  const REST_NAMESPACE    = 'projectname/v1/';
+
   function __construct() {
 
     // Register custom endpoints
@@ -30,7 +35,7 @@ class RestAPI {
   public function register_rest_endpoints() {
 
     // Create example endpoint
-    register_rest_route( 'projectname/v1', 'example',
+    register_rest_route( self::REST_NAMESPACE, 'example',
       array(
         array(
           'methods' => 'GET',

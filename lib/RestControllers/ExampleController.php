@@ -23,7 +23,7 @@ class ExampleController {
    * @param WP_REST_Request $request content of the request
    * @return array $response
    */
-  public static function post( \WP_REST_Request $request ) {
+  public static function get( \WP_REST_Request $request ) {
     /**
      * Handle POST endpoint
      * Use Services for further business logic
