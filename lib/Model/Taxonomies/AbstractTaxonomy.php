@@ -104,7 +104,7 @@ abstract class AbstractTaxonomy {
 
     // Get tax terms.
     $args = array(
-      'taxonomy'   => $this->taxonomy,
+      'taxonomy'   => get_called_class()::get_instance()->get_name(),
       'hide_empty' => true,
     );
 

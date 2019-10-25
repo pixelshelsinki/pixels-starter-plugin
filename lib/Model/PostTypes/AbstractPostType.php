@@ -76,7 +76,7 @@ abstract class AbstractPostType {
 
     // Get posts
     $args = array(
-      'post_type'       => $this->get_name(),
+      'post_type'       => get_called_class()::get_instance()->get_name(),
       'post_status'     => 'publish',
       'posts_per_page'  => -1,
     );

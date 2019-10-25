@@ -2,7 +2,12 @@
 
 namespace Pixels\ProjectName\Model\Taxonomies;
 
+use Pixels\ProjectName\Model\TraitSingleton;
+
 class ExampleTaxonomy extends AbstractTaxonomy {
+
+  // Trait that allows singleton behavior
+  use TraitSingleton;
 
   public function __construct() {
 

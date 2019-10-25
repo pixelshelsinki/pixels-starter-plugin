@@ -2,7 +2,12 @@
 
 namespace Pixels\ProjectName\Model\PostTypes;
 
+use Pixels\ProjectName\Model\TraitSingleton;
+
 class Example extends AbstractPostType {
+
+   // Trait that allows singleton behavior.
+   use TraitSingleton;
 
    public function __construct() {
 
