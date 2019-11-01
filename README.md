@@ -2,6 +2,9 @@
 
 This is the starter plugin for Pixels website projects that are built on WordPress.
 
+## Issues, improvements and these instructions.
+
+Please read the documentation below before using. **If things are not clear or you find a mistake, or simply a way to improve the theme, please submit an issue or pull request.**
 
 ## Tools and Technologies
 
@@ -16,6 +19,7 @@ To install this plugin the server instance must have the following setup:
 
 * [WordPress](https://wordpress.org/) >= 4.7
 * [PHP](http://php.net/manual/en/install.php) >= 7.1
+* If you're using options pages, then [ACF Pro](https://www.advancedcustomfields.com/pro/)
 
 To develop this theme you must also have the following:
 
