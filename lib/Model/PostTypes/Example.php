@@ -16,9 +16,9 @@ use Pixels\ProjectName\Model\TraitSingleton;
 class Example extends AbstractPostType {
 
 	/**
-	 * Constant do define if post labels should be translated
-	 * --> If yes, define labels as translatable strings
-	 * --> If not, autocreate labels from one word
+	 * Constant do define if post labels should be translatable
+	 * --> If true, define labels as translatable strings
+	 * --> If false, autocreate labels from one word
 	 */
 	const TRANSLATE_LABELS = false;
 

@@ -7,6 +7,9 @@
 
 namespace Pixels\ProjectName\Model\Taxonomies;
 
+// Inflector for default singular / plural labels.
+use Symfony\Component\Inflector\Inflector;
+
 /**
  * Abstract Taxonomy class
  * Inherited by all taxonomies we create
@@ -27,6 +30,20 @@ abstract class AbstractTaxonomy {
 	 * @var mixed
 	 */
 	protected $post_type;
+
+	/**
+	 * Taxonomy label singular
+	 *
+	 * @var string
+	 */
+	protected $tax_label_singular;
+
+	/**
+	 * Taxonomy label plural
+	 *
+	 * @var string
+	 */
+	protected $tax_label_plural;
 
 	/**
 	 * Taxonomy args / options
@@ -64,6 +81,49 @@ abstract class AbstractTaxonomy {
 	}
 
 	/**
+	 * Set taxonomy name label
+	 * --> Alternative to manually setting all labels
+	 * --> Will populate label string with singular & plural forms
+	 *
+	 * @param string $label of post type, eg. "Example Category".
+	 */
+	protected function set_automatic_labels( $label ) {
+		$this->set_tax_label_singular( $label );
+		$this->set_tax_label_plural( Inflector::pluralize( $label ) );
+		$this->set_labels();
+	}
+
+	/**
+	 * Set singular / plural labels with manually given labels
+	 *
+	 * @param string $singular label of tax, eg. "Category".
+	 * @param string $plural label of tax, eg. "Categories".
+	 */
+	protected function set_manual_labels( $singular, $plural ) {
+		$this->set_tax_label_singular( $singular );
+		$this->set_tax_label_plural( $plural );
+		$this->set_labels();
+	}
+
+	/**
+	 * Set tax singular label
+	 *
+	 * @param string $label label of taxonomy.
+	 */
+	protected function set_tax_label_singular( $label ) {
+		$this->tax_label_singular = $label;
+	}
+
+	/**
+	 * Set tax singular label
+	 *
+	 * @param string $label plural label of taxonomy.
+	 */
+	protected function set_tax_label_plural( $label ) {
+		$this->tax_label_plural = $label;
+	}
+
+	/**
 	 * Set taxonoomy post type(s)
 	 *
 	 * @param mixed $post_type either array or string.
@@ -97,6 +157,40 @@ abstract class AbstractTaxonomy {
 	 */
 	protected function get_args() {
 		return $this->args;
+	}
+
+	/**
+	 * Set label strings for tax registration
+	 */
+	public function set_labels() {
+
+		$labels = array(
+			'name'              => sprintf(
+				_x( '%s', 'taxonomy general name', 'pixels-starter-plugin' ),
+				$this->tax_label_plural
+			),
+			'singular_name'     => sprintf( _x( '%s', 'taxonomy singular name', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'search_items'      => sprintf( __( 'Search %s ', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'all_items'         => sprintf( __( 'All %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'parent_item'       => sprintf( __( 'Parent %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'parent_item_colon' => sprintf( __( 'Parent %s:', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'edit_item'         => sprintf( __( 'Edit %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'update_item'       => sprintf( __( 'Update %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'add_new_item'      => sprintf( __( 'Add New %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'delete_item'       => sprintf( __( 'Delete %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+			'new_item_name'     => sprintf( __( 'New %s', 'pixels-starter-plugin' ), $this->tax_label_plural ),
+		);
+
+		$this->labels = $labels;
+	}
+
+	/**
+	 * Return labels array
+	 *
+	 * @return array $labels of post.
+	 */
+	public function get_labels() {
+		return $this->labels;
 	}
 
 	/**

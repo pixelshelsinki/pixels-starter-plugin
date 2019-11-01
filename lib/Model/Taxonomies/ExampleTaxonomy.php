@@ -18,6 +18,13 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	use TraitSingleton;
 
 	/**
+	 * Constant do define if post labels should be translatable
+	 * --> If true, define labels as translatable strings
+	 * --> If false, autocreate labels from one word
+	 */
+	const TRANSLATE_LABELS = false;
+
+	/**
 	 * Class constructor
 	 */
 	public function __construct() {
@@ -25,6 +32,21 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 		// Set up tax.
 		$this->set_name( 'example_category' );
 		$this->set_post_type( 'example' );
+
+		/**
+		 * Set labels
+		 */
+		if ( self::TRANSLATE_LABELS ) :
+			// If you need to translate labels.
+			$singular = __( 'Example Category', 'pixels-starter-plugin' );
+			$plural   = __( 'Example Categories', 'pixels-starter-plugin' );
+
+			$this->set_manual_labels( $singular, $plural );
+		else :
+			// Automatically generate labels from one word.
+			$this->set_automatic_labels( 'Example Category' );
+		endif;
+
 		$this->set_args( $this->define_args() );
 
 		// Hook up example taxonomy.
@@ -36,11 +58,18 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	 *
 	 * @return array $labels
 	 */
-	public static function define_args() {
+	public function define_args() {
+
+		// Check if we're using manual or automatic labels.
+		if ( null === $this->tax_label_singular && null === $this->tax_label_plural ) :
+			$labels = $this->define_labels();
+		else :
+			$labels = $this->get_labels();
+		endif;
 
 		$args = array(
 			'hierarchical'      => true,
-			'labels'            => self::define_labels(),
+			'labels'            => $labels,
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
@@ -59,7 +88,7 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	 *
 	 * @return array $labels
 	 */
-	public static function define_labels() {
+	public function define_labels() {
 
 		$labels = array(
 			'name'              => _x( 'Example Tax', 'taxonomy general name', 'pixels-starter-plugin' ),
