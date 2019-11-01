@@ -19,6 +19,7 @@ To install this plugin the server instance must have the following setup:
 
 * [WordPress](https://wordpress.org/) >= 4.7
 * [PHP](http://php.net/manual/en/install.php) >= 7.1
+* [Advanced Custom Fields](https://www.advancedcustomfields.com/) if you use meta fields.
 * If you're using options pages, then [ACF Pro](https://www.advancedcustomfields.com/pro/)
 
 To develop this theme you must also have the following:
@@ -48,8 +49,8 @@ To start developing do the following:
 
 Plugins contains examples on Post Type and Taxonomy creations. Both extend abstract parent classes that do all the heavy lifting.
 
-For Post Types, use `/lib/Model/PostTypes/Example.php` as starting point
-For Taxonomies, use `/lib/Model/Taxonomies/ExampleTaxonomy.php` as starting point
+- For Post Types, use `/lib/Model/PostTypes/Example.php` as starting point.
+- For Taxonomies, use `/lib/Model/Taxonomies/ExampleTaxonomy.php` as starting point
 
 Minimal implementation: just replace "Example" with your post type or taxonomy. The classes have couple of options for creating labels:
 
