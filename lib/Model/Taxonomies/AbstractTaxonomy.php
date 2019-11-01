@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class for ExampleTaxonomy
+ *
+ * @package ProjectName.
+ */
 
 namespace Pixels\ProjectName\Model\Taxonomies;
 
@@ -9,119 +14,119 @@ namespace Pixels\ProjectName\Model\Taxonomies;
  */
 abstract class AbstractTaxonomy {
 
-  /**
-   * Name of taxonomy
-   *
-   * @var string
-   */
-  protected $taxonomy;
+	/**
+	 * Name of taxonomy
+	 *
+	 * @var string
+	 */
+	protected $taxonomy;
 
-  /**
-   * Post type(s)
-   *
-   * @var mixed
-   */
-  protected $post_type;
+	/**
+	 * Post type(s)
+	 *
+	 * @var mixed
+	 */
+	protected $post_type;
 
-  /**
-   * Taxonomy args / options
-   *
-   * @var array
-   */
-  protected $args;
+	/**
+	 * Taxonomy args / options
+	 *
+	 * @var array
+	 */
+	protected $args;
 
-  /**
-   * Create the taxonomy
-   */
-  public function create() {
-    
-    //Register & connect to CPT(s)
-    register_taxonomy( $this->get_name(), $this->get_post_type() , $this->get_args() );
-    register_taxonomy_for_object_type( $this->get_name(), $this->get_post_type() );
-  }
+	/**
+	 * Create the taxonomy
+	 */
+	public function create() {
 
-  /**
-   * Set taxonoomy property name
-   *
-   * @param string $taxonomy name
-   */
-  protected function set_name( $taxonomy ) {
-    $this->taxonomy = $taxonomy;
-  }
+		// Register & connect to CPT(s).
+		register_taxonomy( $this->get_name(), $this->get_post_type(), $this->get_args() );
+		register_taxonomy_for_object_type( $this->get_name(), $this->get_post_type() );
+	}
 
-  /**
-   * Get taxonoomy property name
-   *
-   * @return string $taxonomy name
-   */
-  protected function get_name() {
-    return $this->taxonomy;
-  }
+	/**
+	 * Set taxonoomy property name
+	 *
+	 * @param string $taxonomy name.
+	 */
+	protected function set_name( $taxonomy ) {
+		$this->taxonomy = $taxonomy;
+	}
 
-  /**
-   * Set taxonoomy post type(s)
-   *
-   * @param mixed $post_type either array or string
-   */
-  protected function set_post_type( $post_type ) {
-    $this->post_type = $post_type;
-  }
+	/**
+	 * Get taxonoomy property name
+	 *
+	 * @return string $taxonomy name.
+	 */
+	protected function get_name() {
+		return $this->taxonomy;
+	}
 
-  /**
-   * Get taxonoomy post type name
-   *
-   * @return mixed $post_type string or array
-   */
-  protected function get_post_type() {
-    return $this->post_type;
-  }
+	/**
+	 * Set taxonoomy post type(s)
+	 *
+	 * @param mixed $post_type either array or string.
+	 */
+	protected function set_post_type( $post_type ) {
+		$this->post_type = $post_type;
+	}
 
-  /**
-   * Set taxonoomy property args
-   *
-   * @param array $args name
-   */
-  protected function set_args( array $args ) {
-    $this->args = $args;
-  }
+	/**
+	 * Get taxonoomy post type name
+	 *
+	 * @return mixed $post_type string or array.
+	 */
+	protected function get_post_type() {
+		return $this->post_type;
+	}
 
-  /**
-   * Get taxonoomy args
-   *
-   * @return array $args of tax
-   */
-  protected function get_args() {
-    return $this->args;
-  }
+	/**
+	 * Set taxonoomy property args
+	 *
+	 * @param array $args name.
+	 */
+	protected function set_args( array $args ) {
+		$this->args = $args;
+	}
 
-  /**
-   * Return array of taxonomy terms
-   *
-   * @param bool $as_timber wp terms or timber terms
-   * @return array $terms
-   */
-  public static function get_terms( $as_timber = false ) {
+	/**
+	 * Get taxonoomy args
+	 *
+	 * @return array $args of tax.
+	 */
+	protected function get_args() {
+		return $this->args;
+	}
 
-    // Get tax terms.
-    $args = array(
-      'taxonomy'   => get_called_class()::get_instance()->get_name(),
-      'hide_empty' => true,
-    );
+	/**
+	 * Return array of taxonomy terms
+	 *
+	 * @param bool $as_timber wp terms or timber terms.
+	 * @return array $terms.
+	 */
+	public static function get_terms( $as_timber = false ) {
 
-    $terms = get_terms( $args );
+		// Get tax terms.
+		$args = array(
+			'taxonomy'   => get_called_class()::get_instance()->get_name(),
+			'hide_empty' => true,
+		);
 
-    // Return WP or Timber terms
-    if( $as_timber ):
-      $terms_timber = array();
+		$terms = get_terms( $args );
 
-      // Make each term a Timber term.
-      foreach ( $terms as $term ) :
-        $terms_timber[] = new \Timber\Term( $term->term_id );
-      endforeach;
+		// Return WP or Timber terms.
+		if ( $as_timber ) :
+			$terms_timber = array();
 
-      return $terms_timber;
-    endif;
+			// Make each term a Timber term.
+			foreach ( $terms as $term ) :
+				$terms_timber[] = new \Timber\Term( $term->term_id );
+			endforeach;
 
-    return $terms;
-  }
+			return $terms_timber;
+		endif;
+
+		return $terms;
+	}
 }

@@ -1,53 +1,82 @@
 <?php
+/**
+ * Class for Model
+ *
+ * @package ProjectName.
+ */
 
 namespace Pixels\ProjectName;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * ProjectName Model class
- * @since 1.0
- * @author Pixels
- */
-
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-/**
  * --> Handle custom post types
  * --> Handle taxonomies
  * --> Handle meta fields
+ *
+ * @since 1.0
+ * @author Pixels
  */
-
 class Model {
 
-  //Class properties.
+	// Class properties.
 
-  // Post types.
-  private $cpt_example;
+	/**
+	 * Post types.
+	 *
+	 * @var class
+	 */
+	private $cpt_example;
 
-  // Taxonomies.
-  private $tax_example;
+	/**
+	 * Taxonomies
+	 *
+	 * @var class
+	 */
+	private $tax_example;
 
-  // Meta fields.
-  private $meta_example;
+	/**
+	 * Meta fields.
+	 *
+	 * @var class
+	 */
+	private $meta_example;
 
-  // Common ACF
-  private $options_pages;
-  private $acf;
+	/**
+	 * Options pages.
+	 *
+	 * @var class
+	 */
+	private $options_pages;
 
-  function __construct() {
+	/**
+	 * Common ACF.
+	 *
+	 * @var class
+	 */
+	private $acf;
 
-    // Custom post types.
-    $this->cpt_example       = new Model\PostTypes\Example();
+	/**
+	 * Class constructor
+	 */
+	public function __construct() {
 
-    // Taxonomies.
-    $this->tax_example      = new Model\Taxonomies\ExampleTaxonomy();
+		// Custom post types.
+		$this->cpt_example = new Model\PostTypes\Example();
 
-    // Fields.
-    $this->meta_example     = new Model\Meta\Fields\Example();
+		// Taxonomies.
+		$this->tax_example = new Model\Taxonomies\ExampleTaxonomy();
 
-    // Misc.
-    $this->options_pages    = new Model\Meta\OptionsPages();
-    $this->acf              = new Model\Meta\ACF();
+		// Fields.
+		$this->meta_example = new Model\Meta\Fields\Example();
 
-  }
+		// Misc.
+		$this->options_pages = new Model\Meta\OptionsPages();
+		$this->acf           = new Model\Meta\ACF();
+
+	}
 
 } //end Model.

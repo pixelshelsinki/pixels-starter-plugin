@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class for Example
+ *
+ * @package ProjectName.
+ */
 
 namespace Pixels\ProjectName\Model;
 
@@ -11,15 +16,26 @@ namespace Pixels\ProjectName\Model;
  * @author Pixels
  */
 trait TraitSingleton {
+
+	/**
+	 * Stored singleton instance
+	 *
+	 * @var Class
+	 */
 	private static $instance;
 
+	/**
+	 * Gets the singleton instance
+	 *
+	 * @return instance of self
+	 */
 	public static function get_instance() {
 
-	    if (!isset(self::$instance)):
-	        $reflection     = new \ReflectionClass(__CLASS__);
-	        self::$instance = $reflection->newInstanceArgs(func_get_args());
-	    endif;
+		if ( ! isset( self::$instance ) ) :
+			$reflection     = new \ReflectionClass( __CLASS__ );
+			self::$instance = $reflection->newInstanceArgs( func_get_args() );
+		endif;
 
-	    return self::$instance;
+		return self::$instance;
 	}
 }
