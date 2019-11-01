@@ -84,7 +84,9 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	}
 
 	/**
-	 * Get label strings for tax registration
+	  * OPTIONAL: Set labels manually for registration
+	 * If you need to set everything manually,
+	 * comment out the IF block in constructor
 	 *
 	 * @return array $labels
 	 */
