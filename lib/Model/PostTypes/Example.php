@@ -15,6 +15,13 @@ use Pixels\ProjectName\Model\TraitSingleton;
  */
 class Example extends AbstractPostType {
 
+	/**
+	 * Constant do define if post labels should be translated
+	 * --> If yes, define labels as translatable strings
+	 * --> If not, autocreate labels from one word
+	 */
+	const TRANSLATE_LABELS = false;
+
 	// Trait that allows singleton behavior.
 	use TraitSingleton;
 
@@ -23,8 +30,24 @@ class Example extends AbstractPostType {
 	 */
 	public function __construct() {
 
-		// Set up post type options.
+		// Set up post type slug.
 		$this->set_name( 'example' );
+
+		/**
+		 * Set labels
+		 */
+		if ( self::TRANSLATE_LABELS ) :
+			// If you need to translate labels.
+			$singular = __( 'Example', 'pixels-starter-plugin' );
+			$plural   = __( 'Examples', 'pixels-starter-plugin' );
+
+			$this->set_manual_labels( $singular, $plural );
+		else :
+			// Automatically generate labels from one word.
+			$this->set_automatic_labels( 'Example' );
+		endif;
+
+		// Define args.
 		$this->set_args( $this->define_args() );
 
 		// Hook up Example cpt.
@@ -38,8 +61,15 @@ class Example extends AbstractPostType {
 	 */
 	public function define_args() {
 
+		// Check if we're using manual or automatic labels.
+		if ( null === $this->post_label_singular && null === $this->post_label_plural ) :
+			$labels = $this->define_labels();
+		else :
+			$labels = $this->get_labels();
+		endif;
+
 		$args = array(
-			'labels'             => $this->define_labels(),
+			'labels'             => $labels,
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
@@ -57,7 +87,8 @@ class Example extends AbstractPostType {
 	}
 
 	/**
-	 * Get labels array for registration
+	 * OPTIONAL: Set labels manually for registration
+	 * If you need to set everything manually, comment out the IF block in constructor
 	 *
 	 * @return array $labels of post.
 	 */

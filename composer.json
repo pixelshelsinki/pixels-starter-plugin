@@ -17,6 +17,7 @@
     "issues": "https://github.com/pixelshelsinki/pixels-starter-plugin/issues"
   },
   "require": {
+    "symfony/inflector": "^4.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.3.1",
@@ -38,4 +39,3 @@
     ]
   }
 }
-

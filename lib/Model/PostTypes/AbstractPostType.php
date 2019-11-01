@@ -7,6 +7,9 @@
 
 namespace Pixels\ProjectName\Model\PostTypes;
 
+// Inflector for default singular / plural labels.
+use Symfony\Component\Inflector\Inflector;
+
 /**
  * Abstract PostType class
  * Inherited by all post types we create
@@ -20,6 +23,27 @@ abstract class AbstractPostType {
 	 * @var string
 	 */
 	protected $post_type;
+
+	/**
+	 * Post label singular
+	 *
+	 * @var string
+	 */
+	protected $post_label_singular;
+
+	/**
+	 * Post label plural
+	 *
+	 * @var string
+	 */
+	protected $post_label_plural;
+
+	/**
+	 * Labels / Strings of post
+	 *
+	 * @var array
+	 */
+	protected $labels;
 
 	/**
 	 * Post type args / options
@@ -42,6 +66,50 @@ abstract class AbstractPostType {
 	 */
 	protected function set_name( $post_type ) {
 		$this->post_type = $post_type;
+	}
+
+	/**
+	 * Set post name label
+	 * --> Alternative to manually setting all labels
+	 * --> Will populate label string with singular & plural forms
+	 *
+	 * @param string $label of post type, eg. "Example".
+	 */
+	protected function set_automatic_labels( $label ) {
+		$this->set_post_label_singular( $label );
+		$this->set_post_label_plural( Inflector::pluralize( $label ) );
+
+		$this->set_labels();
+	}
+
+	/**
+	 * Set singular / plural labels with manually given labels
+	 *
+	 * @param string $singular label of post type, eg. "Category".
+	 * @param string $plural label of post type, eg. "Categories".
+	 */
+	protected function set_manual_labels( $singular, $plural ) {
+		$this->set_post_label_singular( $singular );
+		$this->set_post_label_plural( $plural );
+		$this->set_labels();
+	}
+
+	/**
+	 * Set post singular label
+	 *
+	 * @param string $label label of post type.
+	 */
+	protected function set_post_label_singular( $label ) {
+		$this->post_label_singular = $label;
+	}
+
+	/**
+	 * Set post singular label
+	 *
+	 * @param string $label plural label of post type.
+	 */
+	protected function set_post_label_plural( $label ) {
+		$this->post_label_plural = $label;
 	}
 
 	/**
@@ -69,6 +137,43 @@ abstract class AbstractPostType {
 	 */
 	protected function get_args() {
 		return $this->args;
+	}
+
+	/**
+	 * Set labels array using prop labels
+	 */
+	public function set_labels() {
+
+		$labels = array(
+			'name'               => sprintf(
+				_x( '%s', 'post type general name', 'pixels-starter-plugin' ),
+				$this->post_label_singular
+			),
+			'singular_name'      => sprintf( _x( '%s', 'post type singular name', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'menu_name'          => sprintf( _x( '%s', 'admin menu', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'name_admin_bar'     => sprintf( _x( '%s', 'add new on admin bar', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'add_new'            => sprintf( _x( 'Add New', 'add new item', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'add_new_item'       => sprintf( __( 'Add New %s', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'new_item'           => sprintf( __( 'New %s', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'edit_item'          => sprintf( __( 'Edit %s', 'pixels-starter-plugin' ), $this->post_label_singular ),
+			'view_item'          => sprintf( __( 'View %s', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'all_items'          => sprintf( __( 'All %s', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'search_items'       => sprintf( __( 'Search %s', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'parent_item_colon'  => sprintf( __( 'Parent %s:', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'not_found'          => sprintf( __( 'No %s found.', 'pixels-starter-plugin' ), $this->post_label_plural ),
+			'not_found_in_trash' => sprintf( __( 'No %s found in Trash.', 'pixels-starter-plugin' ), $this->post_label_plural ),
+		);
+
+		$this->labels = $labels;
+	}
+
+	/**
+	 * Return labels array
+	 *
+	 * @return array $labels of post.
+	 */
+	public function get_labels() {
+		return $this->labels;
 	}
 
 	/**
