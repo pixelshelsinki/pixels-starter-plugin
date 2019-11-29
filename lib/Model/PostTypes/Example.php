@@ -33,9 +33,22 @@ class Example extends AbstractPostType implements PostTypeInterface {
 		// Set up post type slug.
 		$this->set_name( 'example' );
 
-		/**
-		 * Set labels
-		 */
+		// Set labels.
+		$this->prepare_labels();
+
+		// Define args.
+		$this->set_args( $this->define_args() );
+
+		// Hook up Example cpt.
+		add_action( 'init', array( $this, 'create' ) );
+	}
+
+	/**
+	 * Prepare base labels to props.
+	 * Behavior depends on TRANSLATE_LABELS const.
+	 */
+	public function prepare_labels() {
+
 		if ( self::TRANSLATE_LABELS ) :
 			// If you need to translate labels.
 			$singular = __( 'Example', 'pixels-starter-plugin' );
@@ -47,11 +60,6 @@ class Example extends AbstractPostType implements PostTypeInterface {
 			$this->set_automatic_labels( 'Example' );
 		endif;
 
-		// Define args.
-		$this->set_args( $this->define_args() );
-
-		// Hook up Example cpt.
-		add_action( 'init', array( $this, 'create' ) );
 	}
 
 	/**
