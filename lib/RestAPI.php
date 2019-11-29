@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for Model
+ * Class for RestAPI
  *
  * @package ProjectName.
  */

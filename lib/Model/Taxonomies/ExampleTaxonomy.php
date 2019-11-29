@@ -84,7 +84,7 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	}
 
 	/**
-	  * OPTIONAL: Set labels manually for registration
+	 * OPTIONAL: Set labels manually for registration
 	 * If you need to set everything manually,
 	 * comment out the IF block in constructor
 	 *

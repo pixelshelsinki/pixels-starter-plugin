@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for Model
+ * Class for ExampleController
  *
  * @package ProjectName.
  */
@@ -58,4 +58,4 @@ class ExampleController {
 		return $response;
 	}
 
-} //end SearchAlertController
+} //end ExampleController
