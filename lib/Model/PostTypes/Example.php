@@ -13,7 +13,7 @@ use Pixels\ProjectName\Model\TraitSingleton;
  * Register Example class
  * Extends AbstractPostType
  */
-class Example extends AbstractPostType {
+class Example extends AbstractPostType implements PostTypeInterface {
 
 	/**
 	 * Constant do define if post labels should be translatable
