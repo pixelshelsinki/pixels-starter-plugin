@@ -1,11 +1,11 @@
 <?php
 /**
- * Class for Example
+ * Class for Example Options Page.
  *
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\Meta\OptionsPages;
+namespace Pixels\ProjectName\Model\OptionsPages;
 
 /**
  * Register options page for example

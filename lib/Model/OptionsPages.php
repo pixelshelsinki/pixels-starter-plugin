@@ -1,14 +1,14 @@
 <?php
 /**
- * Class for Example
+ * Class for Optionspages
  *
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\Meta;
+namespace Pixels\ProjectName\Model;
 
 /**
- * Instantiates individual ACF options pages
+ * Instantiates individual options pages
  */
 class OptionsPages {
 
@@ -24,7 +24,8 @@ class OptionsPages {
 	 */
 	public function __construct() {
 
-		add_filter( 'acf/init', array( $this, 'load_options_pages' ) );
+		// Load ACF options pages.
+		add_filter( 'acf/init', array( $this, 'load_acf_options_pages' ) );
 	}
 
 	/**
@@ -32,7 +33,7 @@ class OptionsPages {
 	 *
 	 * @since 1.0
 	 */
-	public function load_options_pages() {
+	public function load_acf_options_pages() {
 
 		// Load options pages.
 		// $this->example = new OptionsPages\Example();.
