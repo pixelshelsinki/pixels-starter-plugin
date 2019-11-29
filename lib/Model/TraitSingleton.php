@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for Example
+ * Class for singleton trait.
  *
  * @package ProjectName.
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for Example
+ * Class for ACF mods.
  *
  * @package ProjectName.
  */

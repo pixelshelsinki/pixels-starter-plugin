@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for ExampleTaxonomy
+ * Class for Abstract Taxonomy.
  *
  * @package ProjectName.
  */
