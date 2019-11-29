@@ -12,7 +12,7 @@ use Pixels\ProjectName\Model\TraitSingleton;
 /**
  * Registers ExampleTaxonomy tax
  */
-class ExampleTaxonomy extends AbstractTaxonomy {
+class ExampleTaxonomy extends AbstractTaxonomy implements TaxonomyInterface {
 
 	// Trait that allows singleton behavior.
 	use TraitSingleton;
@@ -33,9 +33,21 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 		$this->set_name( 'example_category' );
 		$this->set_post_type( 'example' );
 
-		/**
-		 * Set labels
-		 */
+		// Set labels.
+		$this->prepare_labels();
+
+		$this->set_args( $this->define_args() );
+
+		// Hook up example taxonomy.
+		add_action( 'init', array( $this, 'create' ) );
+	}
+
+	/**
+	 * Prepare base labels to props.
+	 * Behavior depends on TRANSLATE_LABELS const.
+	 */
+	public function prepare_labels() {
+
 		if ( self::TRANSLATE_LABELS ) :
 			// If you need to translate labels.
 			$singular = __( 'Example Category', 'pixels-starter-plugin' );
@@ -47,10 +59,6 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 			$this->set_automatic_labels( 'Example Category' );
 		endif;
 
-		$this->set_args( $this->define_args() );
-
-		// Hook up example taxonomy.
-		add_action( 'init', array( $this, 'create' ) );
 	}
 
 	/**
@@ -86,7 +94,7 @@ class ExampleTaxonomy extends AbstractTaxonomy {
 	/**
 	 * OPTIONAL: Set labels manually for registration
 	 * If you need to set everything manually,
-	 * comment out the IF block in constructor
+	 * comment out the prepare_labels() in constructor
 	 *
 	 * @return array $labels
 	 */
