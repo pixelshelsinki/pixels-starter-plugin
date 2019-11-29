@@ -74,7 +74,7 @@ class Model {
 		$this->meta_example = new Model\Meta\Fields\Example();
 
 		// Misc.
-		$this->options_pages = new Model\Meta\OptionsPages();
+		$this->options_pages = new Model\OptionsPages();
 		$this->acf           = new Model\Meta\ACF();
 
 	}
