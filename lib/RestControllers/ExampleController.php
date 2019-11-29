@@ -34,7 +34,7 @@ class ExampleController {
 		$response = array();
 
 		/**
-		 * Handle POST endpoint
+		 * Handle GET endpoint
 		 * Use Services for further business logic
 		 */
 
@@ -51,7 +51,7 @@ class ExampleController {
 		$response = array();
 
 		/**
-		 * Handle GET endpoint
+		 * Handle POST endpoint
 		 * Use Services for further business logic
 		 */
 
