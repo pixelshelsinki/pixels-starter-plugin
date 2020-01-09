@@ -58,7 +58,7 @@ class ExampleAjax {
 			wp_send_json( 'ok' );
 		else :
 			// Error handling.
-			wp_send_jso( 'not ok' );
+			wp_send_json( 'not ok' );
 		endif;
 	}
 
