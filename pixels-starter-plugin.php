@@ -48,6 +48,13 @@ final class App {
 	private $rest;
 
 	/**
+	 * Ajax instance
+	 *
+	 * @var Ajax
+	 */
+	private $ajax;
+
+	/**
 	 * Cron instance
 	 *
 	 * @var Cron
@@ -64,6 +71,7 @@ final class App {
 		// Class instances.
 		$this->model = new Model();
 		$this->rest  = new RestAPI();
+		$this->ajax  = new Ajax();
 		$this->cron  = new Cron();
 
 		// Load plugin translations.
