@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for Cron
+ * Class for Ajax
  *
  * @package ProjectName.
  */
@@ -10,25 +10,24 @@ namespace Pixels\ProjectName;
 /**
  * Ajax class
  *
- * --> Register custom ajax endpoints
- * --> Assign handlers to endpoints
+ * --> Create handler instances Ajax endpoints
  */
 class Ajax {
+
+	/**
+	 * ExampleAjax instance
+	 *
+	 * @var ExampleAjax
+	 */
+	private $example_ajax;
 
 	/**
 	 * Class constructor
 	 */
 	public function __construct() {
 
-		// Register endpoints.
-		add_action( 'wp_ajax_nopriv_example_endpoint', array( $this, 'example_handler' ) );
-		add_action( 'wp_ajax_example_endpoint', array( $this, 'example_handler' ) );
-	}
-
-	/**
-	 * Handle example_endpoint AJAX request.
-	 */
-	public function example_handler() {
-		wp_send_json( 'ok' );
-	}
+		// Initialize individual Ajax endpoints.
+		$this->example_ajax = new Ajax\ExampleAjax();
+		
+	}	
 }
