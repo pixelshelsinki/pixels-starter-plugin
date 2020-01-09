@@ -28,6 +28,6 @@ class Ajax {
 
 		// Initialize individual Ajax endpoints.
 		$this->example_ajax = new Ajax\ExampleAjax();
-		
-	}	
+
+	}
 }

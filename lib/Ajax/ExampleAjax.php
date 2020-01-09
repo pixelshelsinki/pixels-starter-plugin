@@ -7,7 +7,6 @@
 
 namespace Pixels\ProjectName\Ajax;
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -51,17 +50,16 @@ class ExampleAjax {
 		 * Send json reply
 		 */
 
-		$nonce = $_REQUEST['nonce'];
-
 		// Nonce verification.
-		if( wp_verify_nonce( $nonce, self::NONCE_NAME ) ):
+		if ( isset( $_REQUEST['nonce'] ) &&
+			wp_verify_nonce( sanitize_key( $_REQUEST['nonce'] ), self::NONCE_NAME ) ) :
 
 			// Business logic.
 			wp_send_json( 'ok' );
-		else:
+		else :
 			// Error handling.
 			wp_send_jso( 'not ok' );
 		endif;
-	}	
+	}
 
 } //end ExampleAjax
