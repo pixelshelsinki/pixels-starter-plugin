@@ -71,8 +71,13 @@
   <!-- Ignore missing translation hints -->
   <rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
     <severity>0</severity>
-  </rule><!-- Ignore "empty" looking translations -->
+  </rule>
+  <!-- Ignore "empty" looking translations -->
   <rule ref="WordPress.WP.I18n.NoEmptyStrings">
+    <severity>0</severity>
+  </rule>
+  <!-- Ignore Yoda condition -->
+  <rule ref="WordPress.PHP.YodaConditions.NotYoda">
     <severity>0</severity>
   </rule>
 </ruleset>
