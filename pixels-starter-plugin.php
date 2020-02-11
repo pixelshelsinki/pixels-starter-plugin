@@ -75,7 +75,7 @@ final class App {
 		$this->cron  = new Cron();
 
 		// Load plugin translations.
-		add_action( 'after_setup_theme', [ $this, 'load_plugin_textdomain' ], 100 );
+		add_action( 'after_setup_theme', array( $this, 'load_plugin_textdomain' ), 100 );
 
 		// Clear crons on deactivate.
 		register_deactivation_hook( __FILE__, array( $this->cron, 'clear_cron_schedules' ) );
