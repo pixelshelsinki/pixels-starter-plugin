@@ -11,6 +11,7 @@ namespace Pixels\ProjectName;
  * Logger class
  *
  * --> Contains shorthand logging methods
+ * --> Can not be run in production.
  * --> Dump, log to file or console.log.
  */
 class Logger {
@@ -74,6 +75,21 @@ class Logger {
 			// phpcs:ignore
 			var_dump( $content );
 			exit;
+		endif;
+	}
+
+	/**
+	 * Print content using JS console.log
+	 *
+	 * @param mixed $content to be printed.
+	 */
+	public static function console( $content ) {
+		if ( ! self::is_production() ) :
+			?>
+			<script>
+				console.log( <?php echo wp_json_encode( $content ); ?> );
+			</script>
+			<?php
 		endif;
 	}
 }
