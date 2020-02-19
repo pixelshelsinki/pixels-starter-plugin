@@ -32,6 +32,21 @@ class Logger {
 	}
 
 	/**
+	 * Log using error_log.
+	 * Leaves "PixelsLogger" entry for easier search in long file.
+	 *
+	 * @param mixed $content to be logged.
+	 */
+	public static function log( $content ) {
+		if ( ! self::is_production() ) :
+			// phpcs:ignore
+			error_log( print_r( 'PixelsLogger ' . gmdate( 'Y-m-d H:i:s' ), 1 ) );
+			// phpcs:ignore
+			error_log( var_export( $content, 1 ) );
+		endif;
+	}
+
+	/**
 	 * Dump given content to dom.
 	 * Essentially <pre> wrapped var_dump.
 	 *
