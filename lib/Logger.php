@@ -24,10 +24,28 @@ class Logger {
 	public static function is_production() {
 		$is_production = true;
 
-		if( WP_ENV !== 'production' );
+		if ( WP_ENV !== 'production' ) :
 			$is_production = false;
 		endif;
 
 		return $is_production;
+	}
+
+	/**
+	 * Dump given content to dum.
+	 * Essentially <pre> wrapped var_dump.
+	 *
+	 * @param mixed $content to be printed.
+	 */
+	public static function dump( $content ) {
+		if ( ! self::is_production() ) : ?>
+			<pre>
+				<?php
+				// phpcs:ignore
+				var_dump( $content );
+				?>
+			</pre>
+			<?php
+		endif;
 	}
 }
