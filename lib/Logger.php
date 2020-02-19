@@ -32,7 +32,7 @@ class Logger {
 	}
 
 	/**
-	 * Dump given content to dum.
+	 * Dump given content to dom.
 	 * Essentially <pre> wrapped var_dump.
 	 *
 	 * @param mixed $content to be printed.
@@ -46,6 +46,19 @@ class Logger {
 				?>
 			</pre>
 			<?php
+		endif;
+	}
+
+	/**
+	 * Dump given content to dom & exit.
+	 *
+	 * @param mixed $content to be printed.
+	 */
+	public static function die( $content ) {
+		if ( ! self::is_production() ) :
+			// phpcs:ignore
+			var_dump( $content );
+			exit;
 		endif;
 	}
 }
