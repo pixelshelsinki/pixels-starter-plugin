@@ -23,7 +23,9 @@
     "squizlabs/php_codesniffer": "^3.3.1",
     "wp-coding-standards/wpcs": "^2.1.1",
     "phpcompatibility/phpcompatibility-wp": "*",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+    "vimeo/psalm": "^3.11",
+    "giacocorsiglia/wordpress-stubs": "^5.1"
   },
   "autoload": {
     "psr-4": {
@@ -36,6 +38,9 @@
     ],
     "fix": [
       "phpcbf -p -w"
+    ],
+    "psalm": [
+      "psalm"
     ]
   }
 }
