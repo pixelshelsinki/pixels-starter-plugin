@@ -147,7 +147,7 @@ abstract class AbstractPostType {
 		$labels = array(
 			'name'               => sprintf(
 				_x( '%s', 'post type general name', 'pixels-starter-plugin' ),
-				$this->post_label_singular
+				$this->post_label_plural
 			),
 			'singular_name'      => sprintf( _x( '%s', 'post type singular name', 'pixels-starter-plugin' ), $this->post_label_singular ),
 			'menu_name'          => sprintf( _x( '%s', 'admin menu', 'pixels-starter-plugin' ), $this->post_label_plural ),
