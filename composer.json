@@ -25,15 +25,20 @@
     "phpcompatibility/phpcompatibility-wp": "*",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
     "vimeo/psalm": "^3.11",
-    "giacocorsiglia/wordpress-stubs": "^5.1"
+    "giacocorsiglia/wordpress-stubs": "^5.1",
+    "phpunit/phpunit": "^9"
   },
   "autoload": {
     "psr-4": {
-      "Pixels\\ProjectName\\": "lib/"
+      "Pixels\\ProjectName\\": "lib/",
+      "Pixels\\ProjectName\\Tests\\": "tests/"
     }
   },
   "scripts": {
     "test": [
+      "phpunit --testdox"
+    ],
+    "lint": [
       "phpcs"
     ],
     "fix": [
