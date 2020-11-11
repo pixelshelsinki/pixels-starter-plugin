@@ -36,7 +36,9 @@
   },
   "scripts": {
     "test": [
-      "phpunit --testdox"
+      "composer phpunit",
+      "composer psalm",
+      "composer lint"
     ],
     "lint": [
       "phpcs"
@@ -46,6 +48,9 @@
     ],
     "psalm": [
       "psalm"
+    ],
+    "phpunit": [
+      "phpunit --testdox"
     ]
   }
 }
