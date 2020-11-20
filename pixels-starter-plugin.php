@@ -9,7 +9,7 @@
  *
  * @author    Pixels Helsinki
  * @category
- * @copyright Copyright (c) 2019
+ * @copyright Copyright (c) 2020
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  * @package ProjectName
  */
