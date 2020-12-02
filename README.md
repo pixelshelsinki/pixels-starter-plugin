@@ -33,7 +33,7 @@ To develop this theme you must also have the following:
 1. Download this repository as a ZIP (don't clone!).
 2. Drop it into the plugins folder of your WordPress installation and rename the folder to `<client or project name>-plugin`.
 3. Open the theme in your favourite text editor.
-4. Search `pixels-starter-plugin`and replace with `<client or project>-plugin` through the entire theme directory. This should be the same as the theme folder name name from step 2.
+4. Search `pixels-starter-plugin`and replace with `<client or project>-plugin` through the entire plugin directory. This should be the same as the plugin folder name name from step 2.
 5. Search `ProjectName`and replace with PascalCased name of project through the entire theme directory. This ensures your plugin is using correct PHP namespacing.
 6. Run `composer install` in the folder. Even if you don't have Composer dependencies, this will handle Composer autoloading
 
