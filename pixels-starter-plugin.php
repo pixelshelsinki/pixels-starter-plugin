@@ -9,7 +9,7 @@
  *
  * @author    Pixels Helsinki
  * @category
- * @copyright Copyright (c) 2020
+ * @copyright Copyright (c) 2021
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  * @package ProjectName
  */
@@ -18,6 +18,15 @@ namespace Pixels\ProjectName;
 
 // Composer autoload.
 require_once __DIR__ . '/vendor/autoload.php';
+
+// Contracts.
+use Pixels\ProjectName\Services\Contracts\ServiceInterface;
+
+// Repositories.
+use Pixels\ProjectName\Repositories\Examples as ExampleRepository;
+
+// Services.
+use Pixels\ProjectName\Services\Examples as ExampleService;
 
 /**
  * App class
@@ -32,6 +41,13 @@ final class App {
 	 * @var bool
 	 */
 	const DEBUG_MODE = false;
+
+	/**
+	 * DI Container.
+	 *
+	 * @var DependencyInjectionContainer.
+	 */
+	public static $container;
 
 	/**
 	 * Model instance
@@ -74,6 +90,11 @@ final class App {
 		$this->ajax  = new Ajax();
 		$this->cron  = new Cron();
 
+		// Service container.
+		static::$container = new DependencyInjection();
+
+		$this->create_services();
+
 		// Load plugin translations.
 		add_action( 'after_setup_theme', array( $this, 'load_plugin_textdomain' ), 100 );
 
@@ -91,6 +112,27 @@ final class App {
 	 */
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'pixels-starter-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	}
+
+	/**
+	 * Create all service class instances here.
+	 * Expose them via di container.
+	 */
+	private function create_services() {
+		// Repositories.
+		$example_repository = new ExampleRepository();
+
+		// Services.
+		$example_service = new ExampleService( $example_repository );
+
+		static::$container->set( 'examples', $example_service );
+	}
+
+	/**
+	 * Return service form the container.
+	 */
+	public static function get_service( string $service_name ) : ServiceInterface {
+		return static::$container->get( $service_name );
 	}
 
 	/**
