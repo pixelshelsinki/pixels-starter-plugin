@@ -2,9 +2,9 @@ language: php
 sudo: false
 dist: trusty
 php:
+  - 8.0
   - 7.4
   - 7.3
-  - 7.2
   - nightly
 
 env:
