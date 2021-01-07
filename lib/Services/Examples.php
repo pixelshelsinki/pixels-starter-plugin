@@ -40,8 +40,4 @@ class Examples implements ServiceInterface {
 		$this->example_repository = $examples;
 	}
 
-	public function test() {
-		echo 'test';
-	}
-
 }
