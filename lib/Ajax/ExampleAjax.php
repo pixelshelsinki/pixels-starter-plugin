@@ -42,7 +42,7 @@ class ExampleAjax {
 	/**
 	 * Handle AJAX request.
 	 */
-	public static function handle_request() {
+	public function handle_request() {
 
 		/**
 		 * Access data with $_REQUEST array.
