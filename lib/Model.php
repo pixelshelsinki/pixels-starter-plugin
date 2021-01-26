@@ -70,7 +70,7 @@ class Model {
 		$this->add_post_type( 'example', new Model\PostTypes\Example() );
 
 		// Taxonomies.
-		$this->add_taxonomy(  'example_taxonomy', new Model\Taxonomies\ExampleTaxonomy() );
+		$this->add_taxonomy( 'example_taxonomy', new Model\Taxonomies\ExampleTaxonomy() );
 
 		// Fields.
 		$this->meta_example = new Model\Meta\Fields\Example();
