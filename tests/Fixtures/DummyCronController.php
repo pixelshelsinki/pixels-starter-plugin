@@ -21,13 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class DummyCronController implements CronControllerInterface {
 
-    public $is_cleared = false;
+	public $is_cleared = false;
 
-    public function register_crons() {
-        
-    }
+	public function register_crons() {
 
-    public function clear_crons() {
-        $this->is_cleared = true;
-    }
+	}
+
+	public function clear_crons() {
+		$this->is_cleared = true;
+	}
 }
