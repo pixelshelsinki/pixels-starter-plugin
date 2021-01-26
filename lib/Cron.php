@@ -7,14 +7,12 @@
 
 namespace Pixels\ProjectName;
 
-// Example: use Cron handlers for individual cron actions.
-use \Pixels\ProjectName\Cron\ExampleCron;
+// Contracts.
+use Pixels\ProjectName\Cron\Contracts\CronControllerInterface;
 
-/**
- * ProjectName Cron class
- *
- * @author Pixels
- */
+// Example: use Cron handlers for individual cron actions.
+use Pixels\ProjectName\Cron\ExampleCron;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -27,6 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Cron {
 
+	/**
+	 * Array of individual cron controllers.
+	 *
+	 * @var array
+	 */
+	public $controllers = array();
 
 	/**
 	 * Class constructor
@@ -34,10 +38,21 @@ class Cron {
 	public function __construct() {
 
 		// Create individual cron controllers.
-		$this->example_cron = new ExampleCron();
+		$this->add_controller( 'example_cron', new ExampleCron() );
 
 		// Cron actions & schedules.
 		add_filter( 'cron_schedules', array( $this, 'register_custom_schedules' ) );
+	}
+
+	/**
+	 * Add new Cron Controller.
+	 *
+	 * @param string $name
+	 * @param CronControllerInterface $controller
+	 * @return void
+	 */
+	public function add_controller( string $name, CronControllerInterface $controller ) {
+		$this->controllers[ $name ] = $controller;
 	}
 
 	/**
@@ -62,6 +77,8 @@ class Cron {
 	 * Clears scheduled crons in plugin deactivate
 	 */
 	public function clear_cron_schedules() {
-		$this->example_cron->clear_crons();
+		foreach( $this->controllers as $controller ) :
+			$controller->clear_crons();
+		endforeach;
 	}
 }
