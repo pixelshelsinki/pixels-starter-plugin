@@ -43,4 +43,4 @@ class ACF {
 		return $path;
 	} //end add_acf_json_loadpoint
 
-} //end ACF
+}

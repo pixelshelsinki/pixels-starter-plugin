@@ -25,16 +25,16 @@ class Model {
 	// Class properties.
 
 	/**
-	 * Post types.
+	 * Example Post Type.
 	 *
-	 * @var class
+	 * @var Example
 	 */
 	private $cpt_example;
 
 	/**
-	 * Taxonomies
+	 * Example Taxonomy
 	 *
-	 * @var class
+	 * @var ExampleTaxonomy
 	 */
 	private $tax_example;
 
@@ -79,4 +79,4 @@ class Model {
 
 	}
 
-} //end Model.
+}

@@ -5,12 +5,17 @@
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\Taxonomies;
+namespace Pixels\ProjectName\Model\Taxonomies\Contracts;
 
 /**
  * Requires each taxonomy to have certain methods.
  */
 interface TaxonomyInterface {
+
+	/**
+	 * Create taxonomy.
+	 */
+	public function create();
 
 	/**
 	 * Get arguments array for registration

@@ -5,12 +5,17 @@
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\PostTypes;
+namespace Pixels\ProjectName\Model\PostTypes\Contracts;
 
 /**
  * Requires each post type to have certain methods.
  */
 interface PostTypeInterface {
+
+	/**
+	 * Create post type.
+	 */
+	public function create();
 
 	/**
 	 * Get arguments array for registration
