@@ -87,6 +87,7 @@ class Example extends AbstractPostType implements PostTypeInterface {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
+			'menu_icon'          => 'dashicons-calendar-alt', // see list at https://developer.wordpress.org/resource/dashicons/
 			'supports'           => array( 'title', 'editor', 'thumbnail' ),
 		);
 
