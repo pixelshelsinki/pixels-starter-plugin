@@ -7,6 +7,8 @@
 
 namespace Pixels\ProjectName\RestControllers;
 
+use \WP_REST_Request;
+
 // Services controllers use.
 // use \Pixels\ProjectName\Services\ExampleService;.
 
@@ -18,9 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * ProjectName Example Controller class
  * Handle /example/ rest endpoints
- *
- * @since 1.0
- * @author Pixels
  */
 class ExampleController {
 
@@ -30,7 +29,7 @@ class ExampleController {
 	 * @param \WP_REST_Request $request content of the request.
 	 * @return array $response to return.
 	 */
-	public static function get( \WP_REST_Request $request ) {
+	public function get( WP_REST_Request $request ) {
 		$response = array();
 
 		/**
@@ -47,7 +46,7 @@ class ExampleController {
 	 * @param \WP_REST_Request $request content of the request.
 	 * @return array $response to return.
 	 */
-	public static function post( \WP_REST_Request $request ) {
+	public function post( WP_REST_Request $request ) {
 		$response = array();
 
 		/**
@@ -58,4 +57,4 @@ class ExampleController {
 		return $response;
 	}
 
-} //end ExampleController
+}
