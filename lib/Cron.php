@@ -77,7 +77,7 @@ class Cron {
 	 * Clears scheduled crons in plugin deactivate
 	 */
 	public function clear_cron_schedules() {
-		foreach( $this->controllers as $controller ) :
+		foreach ( $this->controllers as $controller ) :
 			$controller->clear_crons();
 		endforeach;
 	}

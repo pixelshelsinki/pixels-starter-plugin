@@ -40,35 +40,35 @@ final class CronTest extends TestCase {
 			Cron::class,
 			new Cron(),
 		);
-    }
-    
-    /**
+	}
+
+	/**
 	 * Accepts CronControllerInterfaces.
 	 */
 	public function testAcceptsCronControllerInterfaces() {
-        $handler    = new Cron();
-        $controller = new DummyCronController();
+		$handler    = new Cron();
+		$controller = new DummyCronController();
 
-        $handler->add_controller( 'dummy_controller', $controller );
+		$handler->add_controller( 'dummy_controller', $controller );
 
 		$this->assertInstanceOf(
 			CronControllerInterface::class,
 			$handler->controllers['dummy_controller'],
 		);
-    }
-    
-    /**
+	}
+
+	/**
 	 * Clears controllers.
 	 */
 	public function testClearsControllers() {
-        $handler    = new Cron();
-        $controller = new DummyCronController();
+		$handler    = new Cron();
+		$controller = new DummyCronController();
 
-        $handler->add_controller( 'dummy_controller', $controller );
+		$handler->add_controller( 'dummy_controller', $controller );
 
-        $this->assertFalse( $controller->is_cleared );
+		$this->assertFalse( $controller->is_cleared );
 
-        $handler->clear_cron_schedules();
+		$handler->clear_cron_schedules();
 
 		$this->assertTrue( $controller->is_cleared );
 	}
