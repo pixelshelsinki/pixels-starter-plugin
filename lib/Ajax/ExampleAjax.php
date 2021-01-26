@@ -13,9 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * ProjectName Example Ajax class
- *
- * @since 1.0
- * @author Pixels
  */
 class ExampleAjax {
 
@@ -26,8 +23,9 @@ class ExampleAjax {
 
 	/**
 	 * Nonce name used for this endpoint.
+	 * Register Nonces in theme & include them in request.
 	 */
-	const NONCE_NAME = 'example_endpoint';
+	const NONCE_NAME = 'example_nonce';
 
 	/**
 	 * Class constructor
@@ -62,4 +60,4 @@ class ExampleAjax {
 		endif;
 	}
 
-} //end ExampleAjax
+}
