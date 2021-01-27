@@ -7,15 +7,12 @@
 
 namespace Pixels\ProjectName;
 
-// Example: use Cron handlers for individual cron actions.
-use \Pixels\ProjectName\Cron\ExampleCron;
+// Contracts.
+use Pixels\ProjectName\Cron\Contracts\CronControllerInterface;
 
-/**
- * ProjectName Cron class
- *
- * @since 1.0
- * @author Pixels
- */
+// Example: use Cron handlers for individual cron actions.
+use Pixels\ProjectName\Cron\ExampleCron;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -29,32 +26,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Cron {
 
 	/**
-	 * Constants for crons
+	 * Array of individual cron controllers.
+	 *
+	 * @var array
 	 */
-	const EXAMPLE_CRON = 'pixels_cron_name';
+	public $controllers = array();
 
 	/**
 	 * Class constructor
 	 */
 	public function __construct() {
 
-		// Cron actions & schedules.
-		add_action( 'init', array( $this, 'register_crons' ) );
-		add_filter( 'cron_schedules', array( $this, 'register_custom_schedules' ) );
+		// Create individual cron controllers.
+		$this->add_controller( 'example_cron', new ExampleCron() );
 
-		// Hook individual services to cron actions.
-		add_action( self::EXAMPLE_CRON, 'Pixels\ProjectName\Cron\ExampleCron::example' );
+		// Cron actions & schedules.
+		add_filter( 'cron_schedules', array( $this, 'register_custom_schedules' ) );
 	}
 
 	/**
-	 * Register Cron events
+	 * Add new Cron Controller.
+	 *
+	 * @param string $name
+	 * @param CronControllerInterface $controller
+	 * @return void
 	 */
-	public function register_crons() {
-
-		// Description of cron.
-		if ( ! wp_next_scheduled( self::EXAMPLE_CRON ) ) {
-			wp_schedule_event( time(), 'daily', self::EXAMPLE_CRON );
-		}
+	public function add_controller( string $name, CronControllerInterface $controller ) {
+		$this->controllers[ $name ] = $controller;
 	}
 
 	/**
@@ -79,6 +77,8 @@ class Cron {
 	 * Clears scheduled crons in plugin deactivate
 	 */
 	public function clear_cron_schedules() {
-		wp_clear_scheduled_hook( self::EXAMPLE_CRON );
+		foreach ( $this->controllers as $controller ) :
+			$controller->clear_crons();
+		endforeach;
 	}
 }

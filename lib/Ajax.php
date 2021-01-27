@@ -7,6 +7,9 @@
 
 namespace Pixels\ProjectName;
 
+// AJAX controllers.
+use Pixels\ProjectName\Ajax\ExampleAjax;
+
 /**
  * Ajax class
  *
@@ -27,7 +30,7 @@ class Ajax {
 	public function __construct() {
 
 		// Initialize individual Ajax endpoints.
-		$this->example_ajax = new Ajax\ExampleAjax();
+		$this->example_ajax = new ExampleAjax();
 
 	}
 }

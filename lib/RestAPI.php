@@ -8,7 +8,7 @@
 namespace Pixels\ProjectName;
 
 // Controllers.
-use RestControllers\ExampleController;
+use Pixels\ProjectName\RestControllers\ExampleController;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -18,8 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * ProjectName RestAPI class
  * --> Register custom rest routes
  * --> Assign routes to controllers
- *
- * @since 1.0
  */
 class RestAPI {
 
@@ -29,9 +27,19 @@ class RestAPI {
 	const REST_NAMESPACE = 'projectname/v1/';
 
 	/**
+	 * ExampleController instance.
+	 *
+	 * @var ExampleController.
+	 */
+	protected $example_controller;
+
+	/**
 	 * Class constructor
 	 */
 	public function __construct() {
+
+		// Create controllers.
+		$this->example_controller = new ExampleController();
 
 		// Register custom endpoints.
 		add_action( 'rest_api_init', array( $this, 'register_rest_endpoints' ) );
@@ -50,11 +58,11 @@ class RestAPI {
 			array(
 				array(
 					'methods'  => 'GET',
-					'callback' => 'Pixels\ProjectName\RestControllers\ExampleController::get',
+					'callback' => array( $this->example_controller, 'get' ),
 				),
 				array(
 					'methods'  => 'POST',
-					'callback' => 'Pixels\ProjectName\RestControllers\ExampleController::post',
+					'callback' => array( $this->example_controller, 'post' ),
 				),
 			)
 		);
