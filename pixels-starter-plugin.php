@@ -50,6 +50,13 @@ final class App {
 	public static $container;
 
 	/**
+	 * Admin instance
+	 *
+	 * @var admin
+	 */
+	private $admin;
+
+	/**
 	 * Model instance
 	 *
 	 * @var Model
@@ -85,6 +92,7 @@ final class App {
 	public function __construct() {
 
 		// Class instances.
+		$this->admin = new Admin();
 		$this->model = new Model();
 		$this->rest  = new RestAPI();
 		$this->ajax  = new Ajax();

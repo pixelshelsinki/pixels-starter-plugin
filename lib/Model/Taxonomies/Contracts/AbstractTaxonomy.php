@@ -5,7 +5,7 @@
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\Taxonomies;
+namespace Pixels\ProjectName\Model\Taxonomies\Contracts;
 
 // Inflector for default singular / plural labels.
 use Symfony\Component\Inflector\Inflector;
@@ -191,36 +191,5 @@ abstract class AbstractTaxonomy {
 	 */
 	public function get_labels() {
 		return $this->labels;
-	}
-
-	/**
-	 * Return array of taxonomy terms
-	 *
-	 * @param bool $as_timber wp terms or timber terms.
-	 * @return array $terms.
-	 */
-	public static function get_terms( $as_timber = false ) {
-
-		// Get tax terms.
-		$args = array(
-			'taxonomy'   => get_called_class()::get_instance()->get_name(),
-			'hide_empty' => true,
-		);
-
-		$terms = get_terms( $args );
-
-		// Return WP or Timber terms.
-		if ( $as_timber ) :
-			$terms_timber = array();
-
-			// Make each term a Timber term.
-			foreach ( $terms as $term ) :
-				$terms_timber[] = new \Timber\Term( $term->term_id );
-			endforeach;
-
-			return $terms_timber;
-		endif;
-
-		return $terms;
 	}
 }

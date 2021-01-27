@@ -5,7 +5,7 @@
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\PostTypes;
+namespace Pixels\ProjectName\Model\PostTypes\Contracts;
 
 // Inflector for default singular / plural labels.
 use Symfony\Component\Inflector\Inflector;
@@ -174,37 +174,5 @@ abstract class AbstractPostType {
 	 */
 	public function get_labels() {
 		return $this->labels;
-	}
-
-	/**
-	 * Return array of posts of current type
-	 *
-	 * @param bool $as_timber wp posts or timber posts.
-	 * @return array $posts of current type.
-	 */
-	public static function get_posts( $as_timber = false ) {
-
-		// Get posts.
-		$args = array(
-			'post_type'      => get_called_class()::get_instance()->get_name(),
-			'post_status'    => 'publish',
-			'posts_per_page' => -1,
-		);
-
-		$posts = get_posts( $args );
-
-		// Return WP or Timber posts.
-		if ( $as_timber ) :
-			$posts_timber = array();
-
-			// Make each term a Timber term.
-			foreach ( $posts as $post ) :
-				$posts_timber[] = new \Timber\Term( $post->ID );
-			endforeach;
-
-			return $posts_timber;
-		endif;
-
-		return $posts;
 	}
 }

@@ -7,7 +7,9 @@
 
 namespace Pixels\ProjectName\Model\PostTypes;
 
-use Pixels\ProjectName\Model\TraitSingleton;
+// Contracts.
+use Pixels\ProjectName\Model\PostTypes\Contracts\AbstractPostType;
+use Pixels\ProjectName\Model\PostTypes\Contracts\PostTypeInterface;
 
 /**
  * Register Example class
@@ -21,9 +23,6 @@ class Example extends AbstractPostType implements PostTypeInterface {
 	 * --> If false, autocreate labels from one word
 	 */
 	const TRANSLATE_LABELS = false;
-
-	// Trait that allows singleton behavior.
-	use TraitSingleton;
 
 	/**
 	 * Class constructor
@@ -88,6 +87,7 @@ class Example extends AbstractPostType implements PostTypeInterface {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
+			'menu_icon'          => 'dashicons-calendar-alt', // see list at https://developer.wordpress.org/resource/dashicons/
 			'supports'           => array( 'title', 'editor', 'thumbnail' ),
 		);
 
@@ -121,4 +121,4 @@ class Example extends AbstractPostType implements PostTypeInterface {
 
 		return $labels;
 	}
-} //end Example
+}

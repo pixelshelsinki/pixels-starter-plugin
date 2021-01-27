@@ -7,15 +7,14 @@
 
 namespace Pixels\ProjectName\Model\Taxonomies;
 
-use Pixels\ProjectName\Model\TraitSingleton;
+// Contracts.
+use Pixels\ProjectName\Model\Taxonomies\Contracts\AbstractTaxonomy;
+use Pixels\ProjectName\Model\Taxonomies\Contracts\TaxonomyInterface;
 
 /**
  * Registers ExampleTaxonomy tax
  */
 class ExampleTaxonomy extends AbstractTaxonomy implements TaxonomyInterface {
-
-	// Trait that allows singleton behavior.
-	use TraitSingleton;
 
 	/**
 	 * Constant do define if post labels should be translatable
@@ -117,4 +116,4 @@ class ExampleTaxonomy extends AbstractTaxonomy implements TaxonomyInterface {
 		return $labels;
 	}
 
-} //end ExampleTaxonomy
+}
