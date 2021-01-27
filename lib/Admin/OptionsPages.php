@@ -1,11 +1,11 @@
 <?php
 /**
- * Class for Optionspages
+ * Class for Options pages
  *
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model;
+namespace Pixels\ProjectName\Admin;
 
 /**
  * Instantiates individual options pages
@@ -37,6 +37,6 @@ class OptionsPages {
 
 		// Load options pages.
 		// $this->example = new OptionsPages\Example();.
-	} //end load_options_pages
+	}
 
-} //end OptionsPages
+}

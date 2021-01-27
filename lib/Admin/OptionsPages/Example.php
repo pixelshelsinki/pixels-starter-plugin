@@ -5,12 +5,10 @@
  * @package ProjectName.
  */
 
-namespace Pixels\ProjectName\Model\OptionsPages;
+namespace Pixels\ProjectName\Admin\OptionsPages;
 
 /**
  * Register options page for example
- *
- * @since 1.0
  */
 class Example {
 
@@ -27,4 +25,4 @@ class Example {
 		);
 	}
 
-} //end Example
+}

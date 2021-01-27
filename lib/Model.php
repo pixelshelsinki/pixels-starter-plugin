@@ -48,13 +48,6 @@ class Model {
 	private $meta_example;
 
 	/**
-	 * Options pages.
-	 *
-	 * @var class
-	 */
-	private $options_pages;
-
-	/**
 	 * Common ACF.
 	 *
 	 * @var class
@@ -76,8 +69,7 @@ class Model {
 		$this->meta_example = new Model\Meta\Fields\Example();
 
 		// Misc.
-		$this->options_pages = new Model\OptionsPages();
-		$this->acf           = new Model\Meta\ACF();
+		$this->acf = new Model\Meta\ACF();
 	}
 
 	/**
@@ -94,7 +86,7 @@ class Model {
 	 * Add Post Type.
 	 *
 	 * @param string $name
-	 * @param TaxonomyInterface $post_type
+	 * @param TaxonomyInterface $taxonomy
 	 */
 	public function add_taxonomy( string $name, TaxonomyInterface $taxonomy ) {
 		$this->taxonomies[ $name ] = $taxonomy;

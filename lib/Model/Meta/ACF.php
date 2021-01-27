@@ -31,7 +31,7 @@ class ACF {
 	public function add_acf_json_load_point( $paths ) {
 		$paths[] = __DIR__ . '/Migrations/';
 		return $paths;
-	} //end add_acf_json_loadpoint
+	}
 
 	/**
 	 * Register custom save oint for ACF meta
@@ -41,6 +41,6 @@ class ACF {
 	public function add_acf_json_save_point( $path ) {
 		$path = __DIR__ . '/Migrations/';
 		return $path;
-	} //end add_acf_json_loadpoint
+	}
 
 }
