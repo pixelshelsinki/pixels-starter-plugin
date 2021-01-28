@@ -16,12 +16,6 @@
     </projectFiles>
 
     <issueHandlers>
-        <UndefinedClass errorLevel="suppress" />
-        <UndefinedFunction errorLevel="suppress" />
-        <UndefinedGlobalVariable errorLevel="suppress" />
-        <InvalidPassByReference errorLevel="suppress" />
-        <MissingDependency errorLevel="suppress" />
-        <InvalidGlobal errorLevel="suppress" />
         <UndefinedConstant errorLevel="suppress" />
     </issueHandlers>
 

@@ -7,6 +7,8 @@
 
 namespace Pixels\ProjectName\Admin;
 
+use Pixels\ProjectName\Admin\OptionsPages\Example;
+
 /**
  * Instantiates individual options pages
  */
@@ -15,7 +17,7 @@ class OptionsPages {
 	/**
 	 * Options page.
 	 *
-	 * @var Class
+	 * @var Example
 	 */
 	private $example;
 
