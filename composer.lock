@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f69628e1f666a2a9e14a90cd7a1c8a05",
+    "content-hash": "cf257bcb39a2181bceb2c971b1d0dac8",
     "packages": [
         {
             "name": "symfony/inflector",
@@ -799,6 +799,51 @@
                 "wordpress"
             ],
             "time": "2019-03-13T21:16:05+00:00"
+        },
+        {
+            "name": "kimhf/advanced-custom-fields-pro-stubs",
+            "version": "v5.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kimhf/advanced-custom-fields-pro-stubs.git",
+                "reference": "10d978938d176d0451ed52e5e169d31de41f9810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kimhf/advanced-custom-fields-pro-stubs/zipball/10d978938d176d0451ed52e5e169d31de41f9810",
+                "reference": "10d978938d176d0451ed52e5e169d31de41f9810",
+                "shasum": ""
+            },
+            "require-dev": {
+                "advanced-custom-fields/advanced-custom-fields-pro": "5.9.2",
+                "giacocorsiglia/stubs-generator": "^0.5",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "installer-paths": {
+                    "plugins/{$name}/": [
+                        "type:wordpress-plugin"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kim Helge Frimanslund",
+                    "homepage": "https://github.com/kimhf"
+                }
+            ],
+            "description": "Stubs for the Advanced Custom Fields Pro WordPress plugin, used for static analysis.",
+            "keywords": [
+                "advanced custom fields pro",
+                "static analysis",
+                "wordpress"
+            ],
+            "time": "2020-10-31T13:45:38+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3710,12 +3755,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -3845,11 +3890,40 @@
                 "wordpress"
             ],
             "time": "2020-05-13T23:57:56+00:00"
+        },
+        {
+            "name": "wpsyntex/polylang-stubs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/polylang/polylang-stubs.git",
+                "reference": "84c59c8701c15a6c1314b6468077fa9e96b0e3d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/polylang/polylang-stubs/zipball/84c59c8701c15a6c1314b6468077fa9e96b0e3d7",
+                "reference": "84c59c8701c15a6c1314b6468077fa9e96b0e3d7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "giacocorsiglia/stubs-generator": "*",
+                "php": "~7.1"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Polylang and Polylang Pro function and class declaration stubs for static analysis.",
+            "homepage": "https://polylang.pro",
+            "time": "2021-01-19T15:48:04+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpsyntex/polylang-stubs": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

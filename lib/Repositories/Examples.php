@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \WP_Post;
+
 /**
  * Repository for accessing Example related data.
  */

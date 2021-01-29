@@ -11,6 +11,8 @@ namespace Pixels\ProjectName;
 use Pixels\ProjectName\Model\PostTypes\Contracts\PostTypeInterface;
 use Pixels\ProjectName\Model\Taxonomies\Contracts\TaxonomyInterface;
 
+use Pixels\ProjectName\Model\Meta\Acf as ACFSetup;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -42,15 +44,13 @@ class Model {
 
 	/**
 	 * Meta fields.
-	 *
-	 * @var class
 	 */
 	private $meta_example;
 
 	/**
 	 * Common ACF.
 	 *
-	 * @var class
+	 * @var ACFSetup
 	 */
 	private $acf;
 
@@ -69,7 +69,7 @@ class Model {
 		$this->meta_example = new Model\Meta\Fields\Example();
 
 		// Misc.
-		$this->acf = new Model\Meta\ACF();
+		$this->acf = new ACFSetup();
 	}
 
 	/**
