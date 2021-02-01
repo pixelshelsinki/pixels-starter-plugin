@@ -11,7 +11,7 @@ namespace Pixels\ProjectName;
 use Pixels\ProjectName\Model\PostTypes\Contracts\PostTypeInterface;
 use Pixels\ProjectName\Model\Taxonomies\Contracts\TaxonomyInterface;
 
-use Pixels\ProjectName\Model\Meta\Acf as ACFSetup;
+use Pixels\ProjectName\Model\Meta\ACF as ACFSetup;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
