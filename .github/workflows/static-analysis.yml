@@ -1,4 +1,4 @@
-name: Test & Lint
+name: Static analysis
 
 on: [pull_request, push]
 
@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:        
-        php-versions: ['7.3', '7.4']
+        php-versions: ['7.3', '7.4', '8.0']
         phpunit-versions: ['latest']
     steps:
     - name: Checkout
@@ -24,4 +24,4 @@ jobs:
         coverage: xdebug        
         tools: php-cs-fixer, phpunit:${{ matrix.phpunit-versions }}, composer:v1
     - run: composer install
-    - run: composer test
+    - run: composer psalm
