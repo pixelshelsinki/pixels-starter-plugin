@@ -17,7 +17,7 @@
     "issues": "https://github.com/pixelshelsinki/pixels-starter-plugin/issues"
   },
   "require": {
-    "symfony/inflector": "^4.3"
+    "symfony/inflector": "^5.2"
   },
   "require-dev": {
     "phpcompatibility/phpcompatibility-wp": "*",
