@@ -2913,16 +2913,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.8",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4"
+                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9d583721a7157ee997f235f327de038e7ea6dac4",
-                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
                 "shasum": ""
             },
             "require": {
@@ -2960,7 +2960,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2020-10-23T02:01:07+00:00"
+            "time": "2021-04-09T00:54:41+00:00"
         },
         {
             "name": "symfony/console",
@@ -3897,17 +3897,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/polylang/polylang-stubs.git",
-                "reference": "84c59c8701c15a6c1314b6468077fa9e96b0e3d7"
+                "reference": "211f837f6c2a4b2bb8258c9a3fe149c50b222e69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/polylang/polylang-stubs/zipball/84c59c8701c15a6c1314b6468077fa9e96b0e3d7",
-                "reference": "84c59c8701c15a6c1314b6468077fa9e96b0e3d7",
+                "url": "https://api.github.com/repos/polylang/polylang-stubs/zipball/211f837f6c2a4b2bb8258c9a3fe149c50b222e69",
+                "reference": "211f837f6c2a4b2bb8258c9a3fe149c50b222e69",
                 "shasum": ""
             },
             "require-dev": {
                 "giacocorsiglia/stubs-generator": "*",
                 "php": "~7.1"
+            },
+            "suggest": {
+                "wpsyntex/polylang-phpstan": "Polylang extension for PHPStan"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -3916,7 +3919,7 @@
             ],
             "description": "Polylang and Polylang Pro function and class declaration stubs for static analysis.",
             "homepage": "https://polylang.pro",
-            "time": "2021-01-19T15:48:04+00:00"
+            "time": "2021-03-09T14:07:02+00:00"
         }
     ],
     "aliases": [],
