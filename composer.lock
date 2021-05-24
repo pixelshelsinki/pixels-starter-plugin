@@ -72,22 +72,22 @@
         },
         {
             "name": "symfony/inflector",
-            "version": "v5.2.6",
+            "version": "v5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
-                "reference": "156df300f1420851a1e184facf3c436a9cd36d02"
+                "reference": "4e322c59a2195da76e7b4287435362a40a086b17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/inflector/zipball/156df300f1420851a1e184facf3c436a9cd36d02",
-                "reference": "156df300f1420851a1e184facf3c436a9cd36d02",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/4e322c59a2195da76e7b4287435362a40a086b17",
+                "reference": "4e322c59a2195da76e7b4287435362a40a086b17",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/deprecation-contracts": "^2.1",
-                "symfony/string": "^5.2.6"
+                "symfony/string": "^5.2.8"
             },
             "type": "library",
             "autoload": {
@@ -136,7 +136,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-17T20:31:43+00:00"
+            "time": "2021-05-10T14:56:10+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
